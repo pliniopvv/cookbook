@@ -8,7 +8,7 @@
  3. gevent
  4. gevent-websocket
 
-Crie uma rota para o `html` que será renderizado
+app.py
 
 ```python
 app = Flask(__name__)
@@ -32,6 +32,8 @@ def message_handler(msg):
 if __name__ == "__main__":
     io.run(app, debug=True)
 ```
+
+chat.html
 
 ```html
 <body>
