@@ -27,8 +27,11 @@ public interface ITokenService {
 public class TokenService : ITokenService {
     private readonly IConfiguration _configuration;
     private readonly IUserRepository repository;
-    public string GenerateToken(LoginDto login) {
-        var userDb = repository.GetByUserName(login.UserName);
+
+    // add constructor with DI;
+
+    public async Task<string> GenerateToken(LoginDto login) {
+        var userDb = await repository.GetByUserName(login.UserName);
         if (userDb.UserName != login.UserName || login.Password != userDb.Password)
         {
             return String.Empty;
