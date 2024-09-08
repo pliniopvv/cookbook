@@ -87,6 +87,11 @@ Criar um controller de autenticação, por exemplo: `AuthenticationController`
 Adicione um `Authentication` no `Program.cs`:
 
 ```csharp
+// ------ services
+builder.Services.TryAddScoped<ITokenService, TokenService>();
+
+// ...
+
 builder.Services.AddAuthentication(x => {
     x.DefaultAuthenticationScheme = JwtBearerDefaults.AuthenticationScheme;
     x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
